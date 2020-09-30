@@ -1,0 +1,169 @@
+:root {
+  --footer-font: #F1B66C;
+  --footer-color: #15151e;
+}
+html {
+    min-width:100%;
+    min-height:100%;
+    background-image: linear-gradient(to top left, #1f1f2e, #c2c2d6);
+    background-repeat: no-repeat;
+}
+
+body {
+    margin: 0px;
+}
+
+header {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+header > h1 {
+  display:inline-block;
+  vertical-align: top;
+  padding-top: 48px;;
+  margin: 0px;
+}
+
+p {
+  font-size: 115%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  vertical-align: bottom;
+  background-color:var(--footer-color);
+  color: var(--footer-font);
+  width:100%;
+}
+#logo {
+    display:inline-block;
+}
+
+#logo > img {
+    width: 128px;
+}
+
+nav {
+    display: inline-block;
+    vertical-align:top;
+    padding-top:58px;
+    padding-right:24px;
+    float: right;
+}
+.navItems {
+  color: whitesmoke;
+}
+
+.selectorWrap{
+    list-style:none;
+    padding:0px;
+    float:left;
+    width: 250px;
+}
+
+.selector {
+    cursor:pointer;
+    padding: 10px;
+}
+.selected {
+    font-weight: bold;
+    background-color: rgba(11,11,11,0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.unSelected {
+    font-weight: normal;
+    background-color: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#projectShower {
+    display: flex;
+    flex-wrap: wrap;
+    margin:0px;
+    margin-left: 5px;
+    width: calc(100% - 255px);
+    list-style:none;
+    padding:0px;
+    color: whitesmoke;
+}
+
+#projectShower > li {
+    display: inline-block;
+    padding: 10px;
+    height: 0px;
+    overflow:hidden;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#projectShower > .hidden {
+    display:inline-block;
+}
+
+.hidden {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    max-width:0px;
+    max-height:0px;
+    width:0px;
+    height:0px;
+    display:none;
+}
+
+#projectShower > .visible {
+    flex: 1 1 auto;
+    opacity: 1;
+    transition: all 1s ease-in-out;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    background-color: #34344c;
+    border: 1px solid #34344c;
+    border-radius: 20px;
+    box-shadow: 5px 10px rgba(11,11,11,0.2);
+}
+
+.footer_info{
+  list-style:none;
+  padding:0px;
+  margin:0px;
+}
+
+.footer_info > li {
+  display:inline-block;
+  padding: 10px;
+}
+
+.none { 
+    display:none !important;
+}
+
+.projectName {
+  color: whitesmoke;
+}
+
+.projectLink > a:link, .projectLink > a:visited{
+  color: whitesmoke
+}
+
+.projectLanguage::before{
+  content: "Kielet/Rajapinnat: ";
+}
+.projectPlatform::before{
+  content: "Alusta: ";
+}
+.projectDesc::before{
+  content: "Lisätiedot: ";
+}
+.projectLink::before{
+  content: "Osoite: ";
+}
+
+.projectDesc::before, .projectLanguage::before, .projectPlatform::before, .projectLink::before{
+  font-weight: lighter;
+  font-style: italic;
+  padding-right: 5px;
+}
