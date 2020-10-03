@@ -16,7 +16,7 @@
             <nav>
                 <a href="Etusivu" onmouseleave="colorHeaderBorder(false)" onmouseenter="colorHeaderBorder(true)" class="navItems" onClick="loadPage('Etusivu', null, null, 'false', event)">Etusivu</a>
                 <a href="Ansioluettelo" onmouseleave="colorHeaderBorder(false)" onmouseenter="colorHeaderBorder(true)" class="navItems" onClick="loadPage('Ansioluettelo', null, null, 'false', event)">Ansioluettelo</a>
-                <a href="Blogi" onmouseleave="colorHeaderBorder(false)" onmouseenter="colorHeaderBorder(true)" class="navItems" onClick="loadPage('Blogi', null, null, 'false', event)">Blogi</a>
+                <a href="Portfolio" onmouseleave="colorHeaderBorder(false)" onmouseenter="colorHeaderBorder(true)" class="navItems" onClick="loadPage('Portfolio', null, null, 'false', event)">Portfolio</a>
                 <a href="Kirjaudu" onmouseleave="colorHeaderBorder(false)" onmouseenter="colorHeaderBorder(true)" class="navItems" onClick="loadPage('Kirjaudu', null, null, 'false', event)">Kirjaudu</a>
             </nav> 
         </header>

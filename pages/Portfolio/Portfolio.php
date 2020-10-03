@@ -18,11 +18,11 @@
 
 <ul id='projectsHolder' hidden>
 <?php
-    $scandir = scandir("pages/Etusivu/Projects");
+    $scandir = scandir("pages/Portfolio/Projects");
     $diff = array("..", ".");
     $scandir = array_diff($scandir,$diff);
     foreach($scandir as $file){ 
-        readfile("pages/Etusivu/Projects/$file");
+        readfile("pages/Portfolio/Projects/$file");
     }
 ?>
 </ul>

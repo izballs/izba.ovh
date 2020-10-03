@@ -2,12 +2,127 @@ window.addEventListener("load", function(){
     console.log("load function");
 });
 
+function addImageListener() {
+	images = document.getElementsByTagName("img");
+
+	for(let i = 0; i < images.length; i++){
+		console.log(images[i].className);
+		if(images[i].className === "projectThumbnail")
+			images[i].addEventListener("click", function() { fullSizeImage(images[i].src); });
+	}
+}
+
+function fullSizeImage(src){
+	let base = document.createElement("div");
+	base.className = "fullSizeImageBase";
+	base.addEventListener("click", function() { this.remove();});
+	let img = document.createElement("img");
+	img.src = src;
+	img.addEventListener("click", function() {base.remove();});
+	base.appendChild(img);
+	document.getElementsByTagName("body")[0].appendChild(base)
+}
+
+
 function login(){
     var form = new FormData();
+    form.append("type", "login");
     form.append("username", document.getElementById("login_username").value);
     form.append("password", document.getElementById("login_password").value);
-    loadXHR("tikettihallinta/login/login.php", "siteWrap", "POST", form, false, null);
+    createPopup("loginPopup");
+    loadXHR("included/dbHandler.php", "siteWrap", "POST", form, false, showPopup);
 }
+function destroyPopups() {
+    var popup = document.getElementsByClassName("popup");
+    for (var x = popup.length - 1; x >= 0; x--) {
+        popup[x].remove();
+    }
+}
+
+
+
+function destroyPopups() {
+    var popup = document.getElementsByClassName("popup");
+    for (var x = popup.length - 1; x >= 0; x--) {
+        popup[x].remove();
+    }
+}
+
+function destroyPopups() {
+    var popup = document.getElementsByClassName("popup");
+    for (var x = popup.length - 1; x >= 0; x--) {
+        popup[x].remove();
+    }
+}
+
+
+
+function createPopup(id) {
+    var popup = document.getElementsByClassName("popup");
+    if (popup.length >= 1) {
+        destroyPopups();
+    }
+    else {
+        popup = document.createElement("div");
+        popup.className = "popup";
+        popup.id = id;
+        popup.hidden = true;
+        document.getElementsByTagName("body")[0].appendChild(popup);
+    }
+}
+
+function showPopup(interval) {
+    var popup = document.getElementsByClassName("popup");
+    for (var x = popup.length - 1; x >= 0; x--) {
+        popup[x].hidden = false;
+    }
+    if (interval == null)
+        interval = 5000;
+    setTimeout(destroyPopups, interval);
+}
+
+
+
+function dialog(message, continueFunction, backFunction, useFunctions) {
+    var dialogWrap = document.createElement("div");
+    var dialogBox = document.createElement("div");
+    var dialogText = document.createElement("p");
+    var dialogYesButton = document.createElement("input");
+    var dialogNoButton = document.createElement("input");
+    dialogWrap.className = "dialogWrap";
+    dialogBox.className = "dialogBox";
+    dialogText.className = "dialogText";
+    dialogYesButton.className = "dialogYesButton";
+    dialogNoButton.className = "dialogNoButton";
+    dialogText.innerHTML = message;
+    dialogYesButton.value = "Kyllä";
+    dialogNoButton.value = "Ei";
+    dialogYesButton.type = "button";
+    dialogNoButton.type = "button";
+    dialogWrap.appendChild(dialogBox);
+    dialogBox.appendChild(dialogText);
+    dialogBox.appendChild(dialogYesButton);
+    dialogBox.appendChild(dialogNoButton);
+    document.getElementsByTagName("body")[0].appendChild(dialogWrap);
+    if (useFunctions[0] == true) {
+        dialogYesButton.onclick = continueFunction;
+        dialogYesButton.addEventListener("click", function () {
+            dialogWrap.remove();
+        });
+    }
+    if (useFunctions[1] == true) {
+        dialogNoButton.onclick = backFunction;
+        dialogNoButton.addEventListener("click", function () {
+            dialogWrap.remove();
+        });
+    }
+    else {
+        dialogNoButton.addEventListener("click", function () {
+            dialogWrap.remove();
+        });
+    }
+}
+
 
 function colorHeaderBorder(bool){
     var header = document.getElementById("header");
